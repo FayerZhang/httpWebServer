@@ -5,10 +5,18 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"time"
 )
 
 func main() {
 	http.HandleFunc("/", func(writer http.ResponseWriter, request *http.Request) {
+		
+		fmt.Println(time.Now())
+		fmt.Println("\nreceive reguest,sleep 100s now ......\n")
+		//等60秒
+		time.Sleep(time.Second * 60)
+		fmt.Println(time.Now())
+		
 		writer.WriteHeader(200)
 		fmt.Println("\n=========== 收到请求信息===============\n")
 
